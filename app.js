@@ -30,9 +30,13 @@ var wrapJeans =new CuteKitty('<img src="img/wrap-jeans.jpg" id="wrap-jeans" clas
 var specsKitten =new CuteKitty('<img src="img/specs-kitten.jpg" id="specs-kitten" class="size">');
 //////////////////////////////Random Two Images/////////////////////////////////////////
 
-//A reference to the DOM element Node is stored in a variable submit
-  var button = document.getElementById("button");
 
+
+// Math.floor chops off after decimal
+//Math.rand() - creates 0 to 0.99999999
+//kittyList.length) 12
+
+//return index no. for the array
 var randomImage = function(){
     var rand1 =Math.floor(Math.random() * kittyList.length);
     var rand2 =Math.floor(Math.random() * kittyList.length);
@@ -50,18 +54,17 @@ var randomImage = function(){
     image1.innerHTML = kittyList[rand1];
     image2.innerHTML = kittyList[rand2];
   }
-//--------------------------------------------------------------
+//-----------------------------------------------------------------
+//A reference to the DOM element Node is stored in a variable submit
+  var button = document.getElementById("button");
+
+
 // target.event('user_action', function);
 //DOMelement.addEventListener('event',functionName[,Boolean]);
 button.addEventListener('click',randomImage);
 //'click'-The event name is enclosed in quotation marks
 
-//--------------------------------------------------------------
-
-// else if(rand1 || rand2 === undefined){
-
-// }
-
+//------------------------------------------------------------------
 // //////////////////////////////Vote/////////////////////////////////////////
 // var carCupCount = 0;
 // var voteCount = function(){
