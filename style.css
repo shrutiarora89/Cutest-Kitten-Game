@@ -6,23 +6,22 @@ background-image: url(img/glass-wallpaper.jpg);
 }
 
 
-img.size{
-    height: 300px;
-    margin: 10px;
-}
-
 ul{
     list-style-type:none;
 }
 
 .pic{
     display: inline-block;
+    height: 300px;
+    margin: 10px;
+    border:2px soild black;
 }
 
 div.center{
     margin:auto;
-    width:60%;
+    width:100%;
 }
+
 
 button {
    border-top: 1px solid #96d1f8;
@@ -48,7 +47,7 @@ button:active {
    }
 
 
-p,section{
+p,section,h2{
   text-align: center;
 }
 
