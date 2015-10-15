@@ -5,41 +5,38 @@
 var kittyList = [];  // kittyList Empty Array
 
 // Constructor variable CuteKitty starts with a CAPITAL Letter
-var CuteKitty = function(images) {
-  this.images = images; //property
+var CuteKitty = function(source) {
+  this.source = source; //property
+  this.count = 0;
 
   this.addImage=function(){ //method to push images in kittyList Array
-    kittyList.push(this.images);
-  }
+    kittyList.push(this); //this is the total object(includes source and count)
+    // console.log(this);//pushing total object inside the array;so that we access object constructor
+  } //properties
 
-  this.addImage(); //Calling the adddImage Function
+  this.addImage();
 }
-
 /////////////////////////////////INSTANCES//////////////////////////
-var catCup = new CuteKitty('<img src="img/cat-cup.jpg" id="cat-cup"class="size">');
-var hands = new CuteKitty('<img src="img/hands.jpg" id="hands" class="size">');
-var hangingWood = new CuteKitty('<img src="img/hanging-wood-kitten.jpg" id="hanging-wood-kitten" class="size">');
-var lookingDown =new CuteKitty('<img src="img/looking-down.jpg" id="looking-down" class="size">');
-var tiaraKitten =new CuteKitty('<img src="img/tiara-kitten.jpg" id="tiara-kitten" class="size">');
-var pinkKitten =new CuteKitty('<img src="img/pink-kitten.jpg" id="pink-kitten" class="size">');
-var starbucksKitten =new CuteKitty('<img src="img/starbucks-kitten.jpg" id="starbucks-kitten" class="size">');
-var streching =new CuteKitty('<img src="img/streching.jpg" id="streching" class="size">');
-var plzKitten =new CuteKitty('<img src="img/plz-kitten.jpg" id="plz-kitten" class="size">');
-var cameraKitten =new CuteKitty('<img src="img/camera-kitten.jpg" id="camera-kitten" class="size">');
-var wrapJeans =new CuteKitty('<img src="img/wrap-jeans.jpg" id="wrap-jeans" class="size">');
-var specsKitten =new CuteKitty('<img src="img/specs-kitten.jpg" id="specs-kitten" class="size">');
+var catCup = new CuteKitty("img/cat-cup.jpg");
+var hands = new CuteKitty("img/hands.jpg");
+var hangingWood = new CuteKitty("img/hanging-wood-kitten.jpg");
+var lookingDown =new CuteKitty("img/looking-down.jpg");
+var tiaraKitten =new CuteKitty("img/tiara-kitten.jpg");
+var pinkKitten =new CuteKitty("img/pink-kitten.jpg");
+var starbucksKitten =new CuteKitty("img/starbucks-kitten.jpg");
+var streching =new CuteKitty("img/streching.jpg");
+var plzKitten =new CuteKitty("img/plz-kitten.jpg");
+var cameraKitten =new CuteKitty("img/camera-kitten.jpg");
+var wrapJeans =new CuteKitty("img/wrap-jeans.jpg" );
+var specsKitten =new CuteKitty("img/specs-kitten.jpg");
 //////////////////////////////Random Two Images/////////////////////////////////////////
-
-
-
-// Math.floor chops off after decimal
-//Math.rand() - creates 0 to 0.99999999
-//kittyList.length) 12
-
 //return index no. for the array
+var rand1;
+var rand2;
+
 var randomImage = function(){
-    var rand1 =Math.floor(Math.random() * kittyList.length);
-    var rand2 =Math.floor(Math.random() * kittyList.length);
+   rand1 =Math.floor(Math.random() * kittyList.length);
+   rand2 =Math.floor(Math.random() * kittyList.length);
 
     while(rand1 === rand2){
      rand2 = Math.floor(Math.random() * kittyList.length) +1;
@@ -48,46 +45,150 @@ var randomImage = function(){
  console.log(rand1);
  console.log(rand2);
 
+    //connecting to the HTML Tags
     var image1 = document.getElementById("image1");
     var image2 = document.getElementById("image2");
-    console.log(kittyList)
-    image1.innerHTML = kittyList[rand1];
-    image2.innerHTML = kittyList[rand2];
+    console.log(kittyList[0]);
+    //src is a property of HTML img tag
+    //source is the constructor prop
+    image1.src = kittyList[rand1].source;
+    image2.src = kittyList[rand2].source;
+
   }
-//-----------------------------------------------------------------
+
+  // //////////////////////////////Vote/////////////////////////////////////////
+
+// // add the count to the property of CuteKitty
+// for (var i=0; i<kittyList.length; i++){
+
+// you want to see if the object source is same as urlOfImageClicked
+// if yes: increment the count on that object
+this.addCount = function(event){
+    console.log(this);
+    console.log(event);
+
+    var urlOfImageClicked = this.src;
+
+for (var i=0; i < kittyList.length;i++){
+
+
+//The indexOf() method searches the array for the specified item,
+//and returns its position.
+
+// The search will start at the specified position,
+// or at the beginning if no start position is specified,
+// and end the search at the end of the array.
+
+// Returns -1 if the item is not found.
+
+//if its not equal to !== -1 that means it is found.
+  if (urlOfImageClicked.indexOf(kittyList[i].source) !== -1){
+          kittyList[i].count++;
+          console.log(urlOfImageClicked);
+         console.log(kittyList[i].source);
+  }
+}
+
+var data = [
+ {
+   value:  catCup.count,
+   label: 'Cat in a cup',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: hands.count,
+   label: 'Hands',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: hangingWood.count,
+   label: 'Cat Hanging on Wood',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+{
+   value: lookingDown.count,
+   label: 'Cat looking down',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: tiaraKitten.count,
+   label: 'Cat in a tiara',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: pinkKitten.count,
+   label: 'Cat in pink',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: starbucksKitten.count,
+   label: 'Cat in Starbucks',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: streching.count,
+   label: 'Cat Stretching',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: plzKitten.count,
+   label: 'Cat Plz',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: cameraKitten.count,
+   label: 'Cat with camera',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: wrapJeans.count,
+   label: 'Cat in jeans',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+ {
+   value: specsKitten.count,
+   label: 'Cat in specs',
+   color: '#8bb015 ',
+   highlight: '#e3a57c '
+ },
+];
+
+var context = document.getElementById('skills').getContext('2d');
+var skillsChart = new Chart(context).Doughnut(data, {
+   //Number - Amount of animation steps
+   animationSteps : 100,
+   //String - Animation easing effect
+   animationEasing : "easeOutBounce",
+   //Boolean - Whether we animate the rotation of the Doughnut
+   animateRotate : true,
+   //Boolean - Whether we animate scaling the Doughnut from the centre
+   animateScale : true
+});
+
+};
+// -----------------------------------------------------------------
 //A reference to the DOM element Node is stored in a variable submit
   var button = document.getElementById("button");
-
 
 // target.event('user_action', function);
 //DOMelement.addEventListener('event',functionName[,Boolean]);
 button.addEventListener('click',randomImage);
 //'click'-The event name is enclosed in quotation marks
+image1.addEventListener('click',this.addCount);
+image2.addEventListener('click',this.addCount);
+
 
 //------------------------------------------------------------------
 // //////////////////////////////Vote/////////////////////////////////////////
-// var carCupCount = 0;
-// var voteCount = function(){
-//   carCupCount = carCupCount +1;
-// }
-//  catCup.addEventListener('click',voteCount);
-//  console.log(carCupCount);
-// // ----------------------------------------------------------
-// var handsCount = 0;
-// var voteCount1 = function(){
-//   handsCount = handsCount +1;
-// }
-//  hands.addEventListener('click',voteCount);
-// // ----------------------------------------------------------
-// var hangingWoodCounts = 0;
-// var voteCount2 = function(){
-//   hangingWoodCounts = hangingWoodCounts +1;
-// }
-//  hands.addEventListener('click',voteCount);
-// // ----------------------------------------------------------
-// var lookingDownCount=0;
-// var voteCount3 = function(){
-//   lookingDownCount = lookingDownCount +1;
-// }
-//  hands.addEventListener('click',voteCount);
-// ----------------------------------------------------------
+
