@@ -1,4 +1,16 @@
+//// if we have something on local storage place that
+// if(localStorage.getItem('todos')) {
+// $('#todos').html(localStorage.getItem('todos'));
+// }
+// localStorage.length == 0
+if(window.localStorage !== null){
+   localStorage.getItem('jsonKitty')
+} else{
+    localStorage.getItem(kittyList)
+}
 
+    // if local storahe.then get it
+    //   else get kittyList and new instances
 ////////////////////////CONSTRUCTOR//////////////////////////////////////////////////////
 
 // index starts with 0 to 11
@@ -63,13 +75,7 @@ var randomImage = function(){
 
 // you want to see if the object source is same as urlOfImageClicked
 // if yes: increment the count on that object
-this.addCount = function(event){
-    console.log(this);
-    console.log(event);
 
-    var urlOfImageClicked = this.src;
-
-for (var i=0; i < kittyList.length;i++){
 
 
 //The indexOf() method searches the array for the specified item,
@@ -82,8 +88,17 @@ for (var i=0; i < kittyList.length;i++){
 // Returns -1 if the item is not found.
 
 //if its not equal to !== -1 that means it is found.
+this.addCount = function(event){
+    console.log(this);
+    console.log(event);
+
+    var urlOfImageClicked = this.src;
+
+for (var i=0; i < kittyList.length;i++){
+
   if (urlOfImageClicked.indexOf(kittyList[i].source) !== -1){
           kittyList[i].count++;
+           console.log(kittyList[i].count++);
           console.log(urlOfImageClicked);
          console.log(kittyList[i].source);
   }
@@ -187,8 +202,29 @@ button.addEventListener('click',randomImage);
 //'click'-The event name is enclosed in quotation marks
 image1.addEventListener('click',this.addCount);
 image2.addEventListener('click',this.addCount);
-
-
 //------------------------------------------------------------------
 // //////////////////////////////Vote/////////////////////////////////////////
+
+// Check browser support
+    // // Store
+
+var setStg = function(){
+    //kittyList Object converted into Strings;KeyValue
+    var jsonObject = JSON.stringify(kittyList);
+    //Set it with the KeyName 'jsonKitty'
+    localStorage.setItem('jsonKitty',jsonObject);
+}//Converted
+    // localStorage.getItem('jsonKitty');
+    //Storing it the variable
+var getStg = function(){
+      var getKitty = localStorage.getItem('jsonKitty');
+      kittyList = JSON.parse(getKitty);
+
+}
+// Converting it back into an Object
+
+button.addEventListener('click',setStg);
+
+button.addEventListener('click',getStg);
+
 
