@@ -6,35 +6,41 @@
   <title></title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="chart.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </head>
 <body>
+<header>
+<h1>Cutest Contestant Game</h1>
+<h2>Who's the Cutest?</h2>
+</header>
 
-  <h1>Cutest Contestant Game</h1>
+<div id="app-container">
 
-  <div class="center">
-  <img id="image1" class="pic">
-  <img id="image2" class="pic">
-  </div>
+    <aside id="canvas-container">
+      <h3>Voting Chart</h3>
+     <canvas id="canvas"></canvas>
+    </aside>
+
+    <div id="main-container">
+
+    <img id="img1" class="child">
+
+    <img id="img2" class="child">
 
 
-<p><button type="button" id="button">Click Me!</button></p>
-<canvas id="skills" width="500" height="500"></canvas>
+    </div>
+</div>
+
+ <p><button type="button" id="button">Next Match</button></p>
+
+
 <script type="text/javascript" src="app.js"></script>
+
+
 </body>
+<footer>
+     Site by Shruti Arora
+</footer>
+
 </html>
-
-<article>
-
-</article>
-
-<!-- when we click the image it is not increasing the count on the pieChart.
-
-when we click the image it should add the count to the property of Cutekitty Constructor and change to a new one.
-
-HTML.src = this.source -->
-
-
-
-
-
-

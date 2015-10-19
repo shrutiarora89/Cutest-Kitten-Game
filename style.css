@@ -1,31 +1,98 @@
-
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 body{
 /*background-image: url(img/gaussian-wallpaper.jpg);*/
-background-image: url(img/glass-wallpaper.jpg);
-
+/*padding: 50px;*/
+/*margin: 50px;
+*/background-image: url(img/glass-wallpaper.jpg);
+ border: 5px solid black;
 }
 
-
-img.size{
-    height: 300px;
-    margin: 10px;
+h1{
+  text-align: center;
+  width: 100%;
+  background-color: rgba(39,62,27,1.00);
+  height: 2.5em;
+  line-height: 2.5em;
+  color: #fff;
+  font-size:35px;
+  font-family: 'Indie Flower', cursive;
 }
 
-ul{
-    list-style-type:none;
+#app-container{
+    width: 100%;
+    overflow: hidden;
 }
 
-.pic{
+#canvas{
+    width:350px;
+    height:400px;
     display: inline-block;
 }
 
-div.center{
-    margin:auto;
-    width:60%;
+#canvas-container{
+  float:right;
+  width:30%;
+  height: 100%;
+  display: inline-block;
+  margin: 0px 0px 0px 100px;
+  background-color: beige;
 }
 
+#main-container{
+  margin-right: 30%;
+  padding-right:30%;
+  white-space: nowrap;
+}
+
+h2{
+font-family: 'Indie Flower', cursive;
+  text-align: center;
+  font-size: 30px;
+}
+/*img.size{
+    height: 300px;
+    margin: 10px;
+}*/
+
+#img_1,#img_2 {
+  flex-grow: 1;
+  margin: 5px 5px 0px 110px;
+  display: inline-block;
+  width:48%;
+  height:300px;
+}
+
+/*img:hover{
+  background: #ffff;
+}*/
+
+/*box_two:hover{
+
+}
+*/
+
+
+p{
+   margin: 80px 20px 0px -250px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+/*ul{
+    list-style-type:none;
+}*/
+
+/*.pic{
+    display: inline-block;
+}*/
+
+/*div.center{
+    margin:auto;
+    width:60%;
+}*/
+
 button {
-   border-top: 1px solid #96d1f8;
+   border-top: 1px solid #000000;
    background: #65a9d7;
    padding: 12.5px 25px;
    border-radius: 40px;
@@ -48,10 +115,46 @@ button:active {
    }
 
 
-p,section{
+/*p,section{
   text-align: center;
+}*/
+
+////////////////////////Flex Box///////////////////////////
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px dashed orange;
+  justify-content: space-between;
+    text-align: center;
+
+
 }
 
-////////////
+.child {
+  border: 5px solid #000000;
+  text-align: center;
+  height:300px;
+  display:inline-block;
+}
 
+#img_1,#img_2 {
+  flex-grow: 1;
+}
 
+/*#box_two {
+  flex-grow: 2;
+}
+*/
+footer{
+  width:100%;
+  background-color:rgba(39,62,27,.75);
+  height:2em;
+  line-height:2em;
+  color:#fff;
+/*  position:fixed;
+*/  bottom:0;
+  font-family:"Lobster";
+  text-align:center;
+  margin: 200px 0px 0px 0px;*/}
+}
